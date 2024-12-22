@@ -47,3 +47,5 @@ const p = new Promise((resolve, reject) => {
   });
 });
 p.then((x) => console.log(x));
+
+console.log("hello");
