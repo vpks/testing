@@ -5,7 +5,7 @@ dotenv.config({ path: "./eVaraibles.env" });
 const app = express();
 
 app.get("/", (req, res, next) => {
-  res.status(200).send("hello");
+  res.status(200).send("hello new started");
 });
 const port = process.env.process_port || 3000;
 app.listen(port, () => {
