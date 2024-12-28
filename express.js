@@ -22,7 +22,7 @@ app.get("/", (req, res, next) => {
   res.status(200).send("<h1>hello sundaram.</h1>");
 });
 app.post("/", upload.single("file"), (req, res, next) => {
-  res.status(201).send("Files uploaded successfully");
+  res.status(201).send(req.file.filename);
 });
 const port = process.env.process_port || 3000;
 app.listen(port, () => {
