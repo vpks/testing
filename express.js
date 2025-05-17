@@ -18,13 +18,13 @@ const upload = multer({
 dotenv.config({ path: "./eVaraibles.env" });
 const app = express();
 
-app.use(express.static(__dirname + "/files"));
+app.use(express.static(__dirname + "/login"));
 app.get("/", (req, res, next) => {
   console.log(__dirname);
   res.status(200).send("<h1>hello sundaram.</h1>");
 });
 app.post("/", upload.single("file"), (req, res, next) => {
-  res.status(201).send(req.file.filename);
+  res.status(201).send(req.file.size);
 });
 const port = process.env.process_port || 3000;
 app.listen(port, () => {
