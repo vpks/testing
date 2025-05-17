@@ -24,7 +24,7 @@ app.get("/", (req, res, next) => {
   res.status(200).send("<h1>hello sundaram.</h1>");
 });
 app.post("/", upload.single("file"), (req, res, next) => {
-  res.status(201).send(req.file.filename);
+  res.status(201).send(req.file.mimetype);
 });
 const port = process.env.process_port || 3000;
 app.listen(port, () => {
