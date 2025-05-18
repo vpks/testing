@@ -24,8 +24,11 @@ app.get("/", (req, res, next) => {
   res.status(200).send("<h1>hello sundaram.</h1>");
 });
 app.post("/", upload.single("file"), (req, res, next) => {
-  if (req.file.size) res.status(200).send(req.file.size);
-  else res.status(400).send("bad response");
+  try {
+    res.status(200).send(req.file.size);
+  } catch {
+    res.status(400).send("bad request..");
+  }
 });
 const port = process.env.process_port || 3000;
 app.listen(port, () => {
