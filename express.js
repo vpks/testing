@@ -21,8 +21,7 @@ const app = express();
 app.set("views", __dirname + "/login");
 app.use(express.static("login"));
 app.get("/test", (req, res, next) => {
-  console.log(__dirname);
-  res.status(200).render("login");
+  res.sendFile("login/login.html", { root: __dirname });
 });
 app.post("/", upload.single("file"), (req, res, next) => {
   try {
