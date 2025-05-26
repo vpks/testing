@@ -21,7 +21,7 @@ const app = express();
 app.use(express.static(path.join(__dirname + "login")));
 app.get("/test", (req, res, next) => {
   console.log(__dirname);
-  res.status(200).send("<h1>hello sundaram.</h1>");
+  res.status(200).send(`<h1>hello sundaram.${__dirname}</h1>`);
 });
 app.post("/", upload.single("file"), (req, res, next) => {
   try {
