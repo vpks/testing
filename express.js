@@ -18,10 +18,11 @@ const upload = multer({
 dotenv.config({ path: "./eVaraibles.env" });
 const app = express();
 
+app.set("views", __dirname + "/login");
 app.use(express.static("login"));
 app.get("/test", (req, res, next) => {
   console.log(__dirname);
-  res.status(200).render(`${__dirname}/login.html`);
+  res.status(200).render("login");
 });
 app.post("/", upload.single("file"), (req, res, next) => {
   try {
