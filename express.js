@@ -19,7 +19,7 @@ dotenv.config({ path: "./eVaraibles.env" });
 const app = express();
 
 app.use(express.static(__dirname + "/login"));
-app.get("/", (req, res, next) => {
+app.get("/test", (req, res, next) => {
   console.log(__dirname);
   res.status(200).send("<h1>hello sundaram.</h1>");
 });
