@@ -1,7 +1,7 @@
 const email = document.getElementById("email").textContent;
 const password = document.getElementById("password").textContent;
 
-document.querySelector(".button").addEventListener("submit", (e) => {
+document.querySelector("#f").addEventListener("submit", (e) => {
   e.preventDefault();
   console.log("cliked");
   click();
