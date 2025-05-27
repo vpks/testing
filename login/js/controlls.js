@@ -1,5 +1,5 @@
-const email = document.getElementById("email").textContent;
-const password = document.getElementById("password").textContent;
+const email = document.getElementById("email").value;
+const password = document.getElementById("password").value;
 
 document.querySelector("#f").addEventListener("click", (e) => {
   e.preventDefault();
