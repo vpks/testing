@@ -22,6 +22,8 @@ app.set("views", __dirname + "/login");
 app.set("views", __dirname + "/js");
 
 app.use(express.static("login"));
+app.use(express.static("login"));
+
 app.get("/test", (req, res, next) => {
   res.sendFile("login/login.html", { root: __dirname });
 });
