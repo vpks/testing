@@ -3,5 +3,5 @@ document.querySelector("#f").addEventListener("click", (e) => {
   const password = document.getElementById("password").value;
   e.preventDefault();
   alert(email);
-  console.log("cliked");
+  console.log(email);
 });
