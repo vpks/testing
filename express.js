@@ -3,7 +3,7 @@ const dotenv = require("dotenv");
 const clusters = require("cluster");
 const multer = require("multer");
 const path = require("path");
-const users = require("../Training/routes/users");
+const users = require(`${__dirname}/routes/users`);
 const fs = require("fs");
 
 let name = "";
