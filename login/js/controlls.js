@@ -4,5 +4,5 @@ document.querySelector("#f").addEventListener("click", (e) => {
   // e.preventDefault();
   // alert(email);
   // console.log(email);
-  window.location.href = "www.google.com";
+  window.location.href = "/external-redirect";
 });
