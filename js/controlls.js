@@ -3,7 +3,7 @@ const password = document.getElementById("password").textContent;
 
 document.querySelector(".button").addEventListener("submit", (e) => {
   e.preventDefault();
-  // click();
+  click();
   window.location.href = "www.google.com";
 });
 
