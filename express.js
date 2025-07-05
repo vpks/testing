@@ -53,6 +53,12 @@ app.post("/", upload.single("file"), (req, res, next) => {
     res.status(400).send("bad request..");
   }
 });
+
+app.get("/external-redirect", (req, res) => {
+  // Redirect to an external website
+  res.redirect("https://www.google.com");
+});
+
 const port = process.env.process_port || 3000;
 app.listen(port, () => {
   console.log("server started number..");
