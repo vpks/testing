@@ -3,6 +3,7 @@ const password = document.getElementById("password").textContent;
 
 document.querySelector(".button").addEventListener("submit", (e) => {
   click();
+  console.log(email);
   //alert("login clicked...");
 });
 
