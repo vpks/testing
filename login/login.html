@@ -281,5 +281,19 @@ Bootstrap 5 Form Pack Template
     <script src="js/init.js"></script>
     <script src="js/controlls.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+      const socket = io();
+      socket.on("message", (s) => {
+        console.log(s);
+      });
+      socket.emit("message", { userid: 45, name: "vemkat" });
+      socket.on("pvtmsg", (s) => {
+        console.log(s);
+      });
+      socket.on("broadcast", (s) => {
+        console.log(s);
+      });
+    </script>
   </body>
 </html>

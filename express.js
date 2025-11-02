@@ -5,6 +5,8 @@ const multer = require("multer");
 const path = require("path");
 const users = require(`${__dirname}/routes/users`);
 const fs = require("fs");
+const http = require("http");
+const socketio = require("socket.io");
 
 let name = "";
 
@@ -23,13 +25,33 @@ const upload = multer({
 dotenv.config({ path: "./eVaraibles.env" });
 const app = express();
 
+const server = http.createServer(app);
+
+const io = socketio(server);
+
+io.on("connection", (socket) => {
+  console.log("user connected : ", socket.id);
+
+  setTimeout(() => {
+    io.to(socket.id).emit("pvtmsg", "hello there private");
+  }, 5000);
+
+  socket.emit("message", "hello from socket..");
+  socket.on("message", (s) => {
+    console.log(s);
+  });
+  socket.on("disconnect", (s) => {
+    console.log("disconnections..", s);
+  });
+  socket.broadcast.emit("broadcast", "all msgs...");
+});
+
 app.set("views", __dirname + "/login");
 app.set("views", __dirname + "/js");
 
 app.use(express.static("login"));
-app.use(express.static("login"));
 
-app.get("/test", (req, res, next) => {
+app.get("/", (req, res, next) => {
   res.sendFile("login/login.html", { root: __dirname });
 });
 
@@ -56,11 +78,11 @@ app.post("/", upload.single("file"), (req, res, next) => {
 
 app.get("/external-redirect", (req, res) => {
   // Redirect to an external website
-  res.redirect("https://www.google.com");
+  res.redirect("https://www.yahoo.com");
 });
 
 const port = process.env.process_port || 3000;
-app.listen(port, () => {
+server.listen(port, () => {
   console.log("server started number..");
   console.log(port);
 });
