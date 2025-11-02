@@ -1,8 +1,9 @@
 const email = document.getElementById("email").textContent;
 const password = document.getElementById("password").textContent;
 
-document.querySelector(".button").addEventListener("submit", (e) => {
-  click();
+document.querySelector("#f").addEventListener("submit", (e) => {
+  // click();
+  e.preventDefault();
   console.log(email);
   //alert("login clicked...");
 });
